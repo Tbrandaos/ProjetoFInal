@@ -46,14 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +74,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,22 +91,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons\AddIcon.png" />
-    <Content Include="Icons\Addicon3.png" />
     <Content Include="Icons\BackIcon.png" />
-    <Content Include="Icons\BackIcon2.jpg" />
-    <Content Include="Icons\CategoryIcon.png" />
-    <Content Include="Icons\CategoryIcon2.jpg" />
+    <Content Include="Icons\CategpryIcon.jpg" />
+    <Content Include="Icons\CleanIcon.png" />
     <Content Include="Icons\DeleteIcon.png" />
-    <Content Include="Icons\EditIcon 2.png" />
-    <Content Include="Icons\EditIcon.jpg" />
-    <Content Include="Icons\EditIcon2.png" />
-    <Content Include="Icons\EraserIcon.png" />
+    <Content Include="Icons\EditIcon.png" />
+    <Content Include="Icons\LogIcon.png" />
     <Content Include="Icons\ProductIcon.png" />
-    <Content Include="Icons\ProductIcon2.jpg" />
     <Content Include="Icons\SearchIcon.png" />
-    <Content Include="Icons\SearchIcon3.png" />
     <Content Include="Icons\UserIcon.png" />
     <Content Include="Icons\UserProfileIcon.png" />
+    <None Include="Resources\UserProfileIcon.png" />
+    <None Include="Resources\UserIcon.png" />
+    <None Include="Resources\SearchIcon.png" />
+    <None Include="Resources\ProductIcon.png" />
+    <None Include="Resources\LogIcon.png" />
+    <None Include="Resources\EditIcon.png" />
+    <None Include="Resources\DeleteIcon.png" />
+    <None Include="Resources\CleanIcon.png" />
+    <None Include="Resources\CategpryIcon.jpg" />
+    <None Include="Resources\BackIcon.png" />
+    <None Include="Resources\AddIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
