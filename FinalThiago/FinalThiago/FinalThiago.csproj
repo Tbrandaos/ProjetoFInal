@@ -105,13 +105,15 @@
     <None Include="Resources\UserIcon.png" />
     <None Include="Resources\SearchIcon.png" />
     <None Include="Resources\ProductIcon.png" />
-    <None Include="Resources\LogIcon.png" />
     <None Include="Resources\EditIcon.png" />
     <None Include="Resources\DeleteIcon.png" />
-    <None Include="Resources\CleanIcon.png" />
-    <None Include="Resources\CategpryIcon.jpg" />
     <None Include="Resources\BackIcon.png" />
     <None Include="Resources\AddIcon.png" />
+    <None Include="Resources\ClearIcon.png" />
+    <None Include="Resources\CategoryIcon2.png" />
+    <None Include="Resources\LogIcon.png" />
+    <None Include="Resources\CleanIcon.png" />
+    <None Include="Resources\CategpryIcon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

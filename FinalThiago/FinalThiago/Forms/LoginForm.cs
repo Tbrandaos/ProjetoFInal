@@ -27,12 +27,12 @@ namespace FinalThiago.Forms
             RideRecover();
         }
 
-        private void pbxBack_Click(object sender, EventArgs e)
-        {
-            RideRecover();
-        }
+		private void pbxBack_Click_1(object sender, EventArgs e)
+		{
+			RideRecover();
+		}
 
-        void ShowRecover()
+		void ShowRecover()
         {
             lblPassword.Visible = false;
             tbxPassword.Visible = false;
@@ -54,5 +54,6 @@ namespace FinalThiago.Forms
             pbxBack.Visible = false;
         }
 
-    }
+		
+	}
 }
