@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FinalThiago.Forms
 {
-	public partial class UserProfileForm : Form
+	public partial class UserProfileAllForm : Form
 	{
-		public UserProfileForm()
+		public UserProfileAllForm()
 		{
 			InitializeComponent();
 		}

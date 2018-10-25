@@ -63,6 +63,7 @@
 			this.lblPassword.Size = new System.Drawing.Size(70, 24);
 			this.lblPassword.TabIndex = 1;
 			this.lblPassword.Text = "Senha:";
+
 			// 
 			// lblForgetPassword
 			// 

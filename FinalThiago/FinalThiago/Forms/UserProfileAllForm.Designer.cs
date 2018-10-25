@@ -1,6 +1,6 @@
 ﻿namespace FinalThiago.Forms
 {
-	partial class UserProfileForm
+	partial class UserProfileAllForm
 	{
 		/// <summary>
 		/// Required designer variable.

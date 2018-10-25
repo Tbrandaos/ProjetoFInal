@@ -76,11 +76,17 @@
     <Compile Include="Forms\UserAllForm.Designer.cs">
       <DependentUpon>UserAllForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UserProfileForm.cs">
+    <Compile Include="Forms\UserDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\UserProfileForm.Designer.cs">
-      <DependentUpon>UserProfileForm.cs</DependentUpon>
+    <Compile Include="Forms\UserDetailsForm.Designer.cs">
+      <DependentUpon>UserDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserProfileAllForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserProfileAllForm.Designer.cs">
+      <DependentUpon>UserProfileAllForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,8 +105,11 @@
     <EmbeddedResource Include="Forms\UserAllForm.resx">
       <DependentUpon>UserAllForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UserProfileForm.resx">
-      <DependentUpon>UserProfileForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\UserDetailsForm.resx">
+      <DependentUpon>UserDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserProfileAllForm.resx">
+      <DependentUpon>UserProfileAllForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
