@@ -63,7 +63,6 @@
 			this.lblPassword.Size = new System.Drawing.Size(70, 24);
 			this.lblPassword.TabIndex = 1;
 			this.lblPassword.Text = "Senha:";
-
 			// 
 			// lblForgetPassword
 			// 
@@ -87,7 +86,7 @@
 			this.tbxName.Margin = new System.Windows.Forms.Padding(4);
 			this.tbxName.Name = "tbxName";
 			this.tbxName.Size = new System.Drawing.Size(169, 28);
-			this.tbxName.TabIndex = 3;
+			this.tbxName.TabIndex = 1;
 			// 
 			// tbxPassword
 			// 
@@ -96,7 +95,7 @@
 			this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
 			this.tbxPassword.Name = "tbxPassword";
 			this.tbxPassword.Size = new System.Drawing.Size(169, 28);
-			this.tbxPassword.TabIndex = 4;
+			this.tbxPassword.TabIndex = 2;
 			// 
 			// btnLogin
 			// 
@@ -106,7 +105,7 @@
 			this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
 			this.btnLogin.Name = "btnLogin";
 			this.btnLogin.Size = new System.Drawing.Size(100, 32);
-			this.btnLogin.TabIndex = 5;
+			this.btnLogin.TabIndex = 3;
 			this.btnLogin.Text = "Login";
 			this.btnLogin.UseVisualStyleBackColor = true;
 			// 

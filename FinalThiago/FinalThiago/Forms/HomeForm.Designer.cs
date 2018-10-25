@@ -111,6 +111,8 @@
 			this.pbxLog.Size = new System.Drawing.Size(133, 62);
 			this.pbxLog.TabIndex = 11;
 			this.pbxLog.TabStop = false;
+			this.pbxLog.MouseEnter += new System.EventHandler(this.pbxLog_MouseEnter);
+			this.pbxLog.MouseLeave += new System.EventHandler(this.pbxLog_MouseLeave);
 			// 
 			// pbxCategory
 			// 
@@ -124,6 +126,8 @@
 			this.pbxCategory.Size = new System.Drawing.Size(133, 62);
 			this.pbxCategory.TabIndex = 5;
 			this.pbxCategory.TabStop = false;
+			this.pbxCategory.MouseEnter += new System.EventHandler(this.pbxCategory_MouseEnter);
+			this.pbxCategory.MouseLeave += new System.EventHandler(this.pbxCategory_MouseLeave);
 			// 
 			// pbxUser
 			// 
@@ -137,6 +141,8 @@
 			this.pbxUser.Size = new System.Drawing.Size(133, 62);
 			this.pbxUser.TabIndex = 4;
 			this.pbxUser.TabStop = false;
+			this.pbxUser.MouseEnter += new System.EventHandler(this.pbxUser_MouseEnter);
+			this.pbxUser.MouseLeave += new System.EventHandler(this.pbxUser_MouseLeave);
 			// 
 			// pbxUserProfile
 			// 
@@ -150,6 +156,8 @@
 			this.pbxUserProfile.Size = new System.Drawing.Size(133, 62);
 			this.pbxUserProfile.TabIndex = 3;
 			this.pbxUserProfile.TabStop = false;
+			this.pbxUserProfile.MouseEnter += new System.EventHandler(this.pbxUserProfile_MouseEnter);
+			this.pbxUserProfile.MouseLeave += new System.EventHandler(this.pbxUserProfile_MouseLeave);
 			// 
 			// pbxBack
 			// 
@@ -176,6 +184,8 @@
 			this.pbxProduct.Size = new System.Drawing.Size(133, 62);
 			this.pbxProduct.TabIndex = 0;
 			this.pbxProduct.TabStop = false;
+			this.pbxProduct.MouseEnter += new System.EventHandler(this.pbxProduct_MouseEnter);
+			this.pbxProduct.MouseLeave += new System.EventHandler(this.pbxProduct_MouseLeave);
 			// 
 			// HomeForm
 			// 

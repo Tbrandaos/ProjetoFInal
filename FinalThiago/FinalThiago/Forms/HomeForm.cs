@@ -17,6 +17,60 @@ namespace FinalThiago.Forms
             InitializeComponent();
         }
 
+		#region Mouse Enter/Leave
 
+		private void pbxProduct_MouseEnter(object sender, EventArgs e)
+		{
+			pbxProduct.BackColor = Color.LightBlue;
+		}
+
+		private void pbxProduct_MouseLeave(object sender, EventArgs e)
+		{
+			pbxProduct.BackColor = Color.Transparent;
+
+		}
+
+		private void pbxCategory_MouseEnter(object sender, EventArgs e)
+		{
+			pbxCategory.BackColor = Color.LightBlue;
+		}
+
+		private void pbxCategory_MouseLeave(object sender, EventArgs e)
+		{
+			pbxCategory.BackColor = Color.Transparent;
+		}
+
+		private void pbxLog_MouseEnter(object sender, EventArgs e)
+		{
+			pbxLog.BackColor = Color.LightBlue;
+		}
+
+		private void pbxLog_MouseLeave(object sender, EventArgs e)
+		{
+			pbxLog.BackColor = Color.Transparent;
+		}
+
+		private void pbxUser_MouseEnter(object sender, EventArgs e)
+		{
+			pbxUser.BackColor = Color.LightBlue;
+		}
+
+		private void pbxUser_MouseLeave(object sender, EventArgs e)
+		{
+			pbxUser.BackColor = Color.Transparent;
+		}
+
+		private void pbxUserProfile_MouseEnter(object sender, EventArgs e)
+		{
+			pbxUserProfile.BackColor = Color.LightBlue;
+		}
+
+		private void pbxUserProfile_MouseLeave(object sender, EventArgs e)
+		{
+			pbxUserProfile.BackColor = Color.Transparent;
+
+		}
+
+		#endregion
 	}
 }

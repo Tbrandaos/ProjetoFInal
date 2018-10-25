@@ -34,18 +34,18 @@
 			this.lblConfirmPassword = new System.Windows.Forms.Label();
 			this.lblProfile = new System.Windows.Forms.Label();
 			this.lblActive = new System.Windows.Forms.Label();
-			this.pbxBack = new System.Windows.Forms.PictureBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.tbxName = new System.Windows.Forms.TextBox();
 			this.tbxConfirmPassword = new System.Windows.Forms.TextBox();
 			this.tbxPassword = new System.Windows.Forms.TextBox();
 			this.tbxEmail = new System.Windows.Forms.TextBox();
 			this.cmbProfile = new System.Windows.Forms.ComboBox();
 			this.cbxActive = new System.Windows.Forms.CheckBox();
-			((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			this.pictureBox3 = new System.Windows.Forms.PictureBox();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.pbxBack = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblName
@@ -114,16 +114,61 @@
 			this.lblActive.TabIndex = 5;
 			this.lblActive.Text = "Ativo:";
 			// 
-			// pbxBack
+			// tbxName
 			// 
-			this.pbxBack.BackColor = System.Drawing.Color.Transparent;
-			this.pbxBack.BackgroundImage = global::FinalThiago.Properties.Resources.BackIcon;
-			this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pbxBack.Location = new System.Drawing.Point(12, 388);
-			this.pbxBack.Name = "pbxBack";
-			this.pbxBack.Size = new System.Drawing.Size(76, 43);
-			this.pbxBack.TabIndex = 6;
-			this.pbxBack.TabStop = false;
+			this.tbxName.Location = new System.Drawing.Point(346, 38);
+			this.tbxName.Name = "tbxName";
+			this.tbxName.Size = new System.Drawing.Size(100, 22);
+			this.tbxName.TabIndex = 1;
+			// 
+			// tbxConfirmPassword
+			// 
+			this.tbxConfirmPassword.Location = new System.Drawing.Point(346, 180);
+			this.tbxConfirmPassword.Name = "tbxConfirmPassword";
+			this.tbxConfirmPassword.Size = new System.Drawing.Size(100, 22);
+			this.tbxConfirmPassword.TabIndex = 4;
+			// 
+			// tbxPassword
+			// 
+			this.tbxPassword.Location = new System.Drawing.Point(346, 132);
+			this.tbxPassword.Name = "tbxPassword";
+			this.tbxPassword.Size = new System.Drawing.Size(100, 22);
+			this.tbxPassword.TabIndex = 3;
+			// 
+			// tbxEmail
+			// 
+			this.tbxEmail.Location = new System.Drawing.Point(346, 85);
+			this.tbxEmail.Name = "tbxEmail";
+			this.tbxEmail.Size = new System.Drawing.Size(100, 22);
+			this.tbxEmail.TabIndex = 2;
+			// 
+			// cmbProfile
+			// 
+			this.cmbProfile.FormattingEnabled = true;
+			this.cmbProfile.Location = new System.Drawing.Point(346, 229);
+			this.cmbProfile.Name = "cmbProfile";
+			this.cmbProfile.Size = new System.Drawing.Size(121, 24);
+			this.cmbProfile.TabIndex = 5;
+			// 
+			// cbxActive
+			// 
+			this.cbxActive.AutoSize = true;
+			this.cbxActive.Location = new System.Drawing.Point(346, 285);
+			this.cbxActive.Name = "cbxActive";
+			this.cbxActive.Size = new System.Drawing.Size(18, 17);
+			this.cbxActive.TabIndex = 6;
+			this.cbxActive.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox3
+			// 
+			this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+			this.pictureBox3.BackgroundImage = global::FinalThiago.Properties.Resources.SaveIcon;
+			this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pictureBox3.Location = new System.Drawing.Point(621, 395);
+			this.pictureBox3.Name = "pictureBox3";
+			this.pictureBox3.Size = new System.Drawing.Size(76, 43);
+			this.pictureBox3.TabIndex = 8;
+			this.pictureBox3.TabStop = false;
 			// 
 			// pictureBox2
 			// 
@@ -136,60 +181,16 @@
 			this.pictureBox2.TabIndex = 7;
 			this.pictureBox2.TabStop = false;
 			// 
-			// pictureBox3
+			// pbxBack
 			// 
-			this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-			this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-			this.pictureBox3.Location = new System.Drawing.Point(621, 395);
-			this.pictureBox3.Name = "pictureBox3";
-			this.pictureBox3.Size = new System.Drawing.Size(76, 43);
-			this.pictureBox3.TabIndex = 8;
-			this.pictureBox3.TabStop = false;
-			// 
-			// tbxName
-			// 
-			this.tbxName.Location = new System.Drawing.Point(346, 38);
-			this.tbxName.Name = "tbxName";
-			this.tbxName.Size = new System.Drawing.Size(100, 22);
-			this.tbxName.TabIndex = 9;
-			// 
-			// tbxConfirmPassword
-			// 
-			this.tbxConfirmPassword.Location = new System.Drawing.Point(346, 180);
-			this.tbxConfirmPassword.Name = "tbxConfirmPassword";
-			this.tbxConfirmPassword.Size = new System.Drawing.Size(100, 22);
-			this.tbxConfirmPassword.TabIndex = 10;
-			// 
-			// tbxPassword
-			// 
-			this.tbxPassword.Location = new System.Drawing.Point(346, 132);
-			this.tbxPassword.Name = "tbxPassword";
-			this.tbxPassword.Size = new System.Drawing.Size(100, 22);
-			this.tbxPassword.TabIndex = 11;
-			// 
-			// tbxEmail
-			// 
-			this.tbxEmail.Location = new System.Drawing.Point(346, 85);
-			this.tbxEmail.Name = "tbxEmail";
-			this.tbxEmail.Size = new System.Drawing.Size(100, 22);
-			this.tbxEmail.TabIndex = 12;
-			// 
-			// cmbProfile
-			// 
-			this.cmbProfile.FormattingEnabled = true;
-			this.cmbProfile.Location = new System.Drawing.Point(346, 229);
-			this.cmbProfile.Name = "cmbProfile";
-			this.cmbProfile.Size = new System.Drawing.Size(121, 24);
-			this.cmbProfile.TabIndex = 13;
-			// 
-			// cbxActive
-			// 
-			this.cbxActive.AutoSize = true;
-			this.cbxActive.Location = new System.Drawing.Point(346, 285);
-			this.cbxActive.Name = "cbxActive";
-			this.cbxActive.Size = new System.Drawing.Size(18, 17);
-			this.cbxActive.TabIndex = 14;
-			this.cbxActive.UseVisualStyleBackColor = true;
+			this.pbxBack.BackColor = System.Drawing.Color.Transparent;
+			this.pbxBack.BackgroundImage = global::FinalThiago.Properties.Resources.BackIcon;
+			this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.pbxBack.Location = new System.Drawing.Point(12, 388);
+			this.pbxBack.Name = "pbxBack";
+			this.pbxBack.Size = new System.Drawing.Size(76, 43);
+			this.pbxBack.TabIndex = 6;
+			this.pbxBack.TabStop = false;
 			// 
 			// UserDetailsForm
 			// 
@@ -214,9 +215,9 @@
 			this.Controls.Add(this.lblName);
 			this.Name = "UserDetailsForm";
 			this.Text = "UserDetailsForm";
-			((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

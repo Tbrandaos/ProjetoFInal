@@ -15,6 +15,7 @@ namespace FinalThiago.Forms
         public LoginForm()
         {
             InitializeComponent();
+
         }
 
         private void lblForgetPassword_Click(object sender, EventArgs e)

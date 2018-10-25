@@ -52,11 +52,23 @@
     <Compile Include="Forms\CategoryAllForm.Designer.cs">
       <DependentUpon>CategoryAllForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CategoryDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategoryDetailsForm.Designer.cs">
+      <DependentUpon>CategoryDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -69,6 +81,12 @@
     </Compile>
     <Compile Include="Forms\ProductAllForm.Designer.cs">
       <DependentUpon>ProductAllForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductDetailsForm.Designer.cs">
+      <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserAllForm.cs">
       <SubType>Form</SubType>
@@ -88,19 +106,34 @@
     <Compile Include="Forms\UserProfileAllForm.Designer.cs">
       <DependentUpon>UserProfileAllForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserProfileDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserProfileDetails.Designer.cs">
+      <DependentUpon>UserProfileDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CategoryAllForm.resx">
       <DependentUpon>CategoryAllForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CategoryDetailsForm.resx">
+      <DependentUpon>CategoryDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductAllForm.resx">
       <DependentUpon>ProductAllForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductDetailsForm.resx">
+      <DependentUpon>ProductDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserAllForm.resx">
       <DependentUpon>UserAllForm.cs</DependentUpon>
@@ -110,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserProfileAllForm.resx">
       <DependentUpon>UserProfileAllForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserProfileDetails.resx">
+      <DependentUpon>UserProfileDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -146,6 +182,7 @@
     <Content Include="Icons\SearchIcon.png" />
     <Content Include="Icons\UserIcon.png" />
     <Content Include="Icons\UserProfileIcon.png" />
+    <None Include="Resources\SaveIcon.png" />
     <None Include="Resources\UserProfileIcon.png" />
     <None Include="Resources\UserIcon.png" />
     <None Include="Resources\SearchIcon.png" />
