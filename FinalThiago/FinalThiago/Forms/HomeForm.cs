@@ -71,6 +71,45 @@ namespace FinalThiago.Forms
 
 		}
 
-		#endregion
-	}
+        #endregion
+
+        #region PbxClick
+
+        private void pbxBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pbxProduct_Click(object sender, EventArgs e)
+        {
+            ProductAllForm paf = new ProductAllForm();
+            paf.Show();
+        }
+
+        private void pbxCategory_Click(object sender, EventArgs e)
+        {
+            CategoryAllForm caf = new CategoryAllForm();
+            caf.Show();
+        }
+
+        private void pbxUser_Click(object sender, EventArgs e)
+        {
+            UserAllForm uaf = new UserAllForm();
+            uaf.Show();
+        }
+
+        private void pbxUserProfile_Click(object sender, EventArgs e)
+        {
+            UserProfileAllForm upaf = new UserProfileAllForm();
+            upaf.Show();
+        }
+
+        private void pbxLog_Click(object sender, EventArgs e)
+        {
+            LogForm lf = new LogForm();
+            lf.Show();
+        }
+
+        #endregion
+    }
 }

@@ -16,5 +16,26 @@ namespace FinalThiago.Forms
 		{
 			InitializeComponent();
 		}
-	}
+
+        #region PbxClick
+
+        private void pbxBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pbxAdd_Click(object sender, EventArgs e)
+        {
+            UserDetailsForm udf = new UserDetailsForm();
+            udf.Show();
+        }
+
+        private void pbxEdit_Click(object sender, EventArgs e)
+        {
+            UserDetailsForm udf = new UserDetailsForm();
+            udf.Show();
+        }
+
+        #endregion
+    }
 }

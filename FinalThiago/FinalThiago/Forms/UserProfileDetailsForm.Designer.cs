@@ -1,6 +1,6 @@
 ﻿namespace FinalThiago.Forms
 {
-	partial class CategoryDetailsForm
+	partial class UserProfileDetailsForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -45,7 +45,7 @@
             this.cbxActive.AutoSize = true;
             this.cbxActive.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxActive.Location = new System.Drawing.Point(236, 157);
-            this.cbxActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxActive.Margin = new System.Windows.Forms.Padding(2);
             this.cbxActive.Name = "cbxActive";
             this.cbxActive.Size = new System.Drawing.Size(15, 14);
             this.cbxActive.TabIndex = 2;
@@ -54,7 +54,7 @@
             // tbxName
             // 
             this.tbxName.Location = new System.Drawing.Point(236, 107);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(76, 20);
             this.tbxName.TabIndex = 1;
@@ -68,7 +68,7 @@
             this.lblActive.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblActive.Name = "lblActive";
             this.lblActive.Size = new System.Drawing.Size(44, 18);
-            this.lblActive.TabIndex = 33;
+            this.lblActive.TabIndex = 42;
             this.lblActive.Text = "Ativo:";
             // 
             // lblName
@@ -80,7 +80,7 @@
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(53, 18);
-            this.lblName.TabIndex = 30;
+            this.lblName.TabIndex = 41;
             this.lblName.Text = "Nome:";
             // 
             // pictureBox3
@@ -90,10 +90,10 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Location = new System.Drawing.Point(472, 321);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(57, 35);
-            this.pictureBox3.TabIndex = 36;
+            this.pictureBox3.TabIndex = 45;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
@@ -103,10 +103,10 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Location = new System.Drawing.Point(534, 321);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(57, 35);
-            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabIndex = 44;
             this.pictureBox2.TabStop = false;
             // 
             // pbxBack
@@ -116,14 +116,14 @@
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxBack.Location = new System.Drawing.Point(9, 321);
-            this.pbxBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxBack.Margin = new System.Windows.Forms.Padding(2);
             this.pbxBack.Name = "pbxBack";
             this.pbxBack.Size = new System.Drawing.Size(57, 35);
-            this.pbxBack.TabIndex = 34;
+            this.pbxBack.TabIndex = 43;
             this.pbxBack.TabStop = false;
             this.pbxBack.Click += new System.EventHandler(this.pbxBack_Click);
             // 
-            // CategoryDetailsForm
+            // UserProfileDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -136,9 +136,9 @@
             this.Controls.Add(this.pbxBack);
             this.Controls.Add(this.lblActive);
             this.Controls.Add(this.lblName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "CategoryDetailsForm";
-            this.Text = "Categoria";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "UserProfileDetailsForm";
+            this.Text = "Perfil de Usuário";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();

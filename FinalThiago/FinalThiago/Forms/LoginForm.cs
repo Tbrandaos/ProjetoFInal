@@ -18,6 +18,8 @@ namespace FinalThiago.Forms
 
         }
 
+        #region PasswordRecover
+
         private void lblForgetPassword_Click(object sender, EventArgs e)
         {
             ShowRecover();
@@ -27,11 +29,6 @@ namespace FinalThiago.Forms
         {
             RideRecover();
         }
-
-		private void pbxBack_Click_1(object sender, EventArgs e)
-		{
-			RideRecover();
-		}
 
 		void ShowRecover()
         {
@@ -55,5 +52,21 @@ namespace FinalThiago.Forms
             pbxBack.Visible = false;
         }
 
-	}
+        #endregion
+
+        #region Click
+
+        private void pbxBack_Click_1(object sender, EventArgs e)
+		{
+			RideRecover();
+		}
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            HomeForm hf = new HomeForm();
+            hf.Show();
+        }
+
+        #endregion
+    }
 }

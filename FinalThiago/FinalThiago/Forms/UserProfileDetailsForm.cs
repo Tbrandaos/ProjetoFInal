@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace FinalThiago.Forms
 {
-	public partial class UserProfileDetails : Form
+	public partial class UserProfileDetailsForm : Form
 	{
-		public UserProfileDetails()
+		public UserProfileDetailsForm()
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void pbxBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }

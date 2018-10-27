@@ -16,5 +16,10 @@ namespace FinalThiago.Forms
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void pbxBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }
