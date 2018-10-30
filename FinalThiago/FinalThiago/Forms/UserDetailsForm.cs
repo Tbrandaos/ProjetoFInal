@@ -12,6 +12,13 @@ namespace FinalThiago.Forms
 {
 	public partial class UserDetailsForm : Form
 	{
+		string name = "";
+		string email = "";
+		string password = "";
+		string confirmPassword = "";
+		string profile = "";
+		bool active = false;
+
 		public UserDetailsForm()
 		{
 			InitializeComponent();
@@ -21,5 +28,22 @@ namespace FinalThiago.Forms
         {
             this.Close();
         }
+
+		void GetData(string name, string email, string password, string confirmPassword, string profile, bool active)
+		{
+			name = tbxName.Text;
+			email = tbxEmail.Text;
+			password = tbxPassword.Text;
+			confirmPassword = tbxConfirmPassword.Text;
+			profile = cmbProfile.Text;
+			if (cbxActive.Checked)
+			{
+				active = true;
+			}
+			else
+			{
+				active = false;
+			}
+		}
     }
 }

@@ -12,6 +12,8 @@ namespace FinalThiago.Forms
 {
 	public partial class UserAllForm : Form
 	{
+		string user = "";
+
 		public UserAllForm()
 		{
 			InitializeComponent();
@@ -36,6 +38,16 @@ namespace FinalThiago.Forms
             udf.Show();
         }
 
-        #endregion
-    }
+		private void pbxClear_Click(object sender, EventArgs e)
+		{
+			tbxSearch.Text = "";
+		}
+
+		#endregion
+
+		void GetData(string user)
+		{
+			user = tbxSearch.Text;
+		}
+	}
 }

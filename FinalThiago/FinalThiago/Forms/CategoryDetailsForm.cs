@@ -12,6 +12,9 @@ namespace FinalThiago.Forms
 {
 	public partial class CategoryDetailsForm : Form
 	{
+		string name = "";
+		bool active = false;
+
 		public CategoryDetailsForm()
 		{
 			InitializeComponent();
@@ -21,5 +24,18 @@ namespace FinalThiago.Forms
         {
             this.Close();
         }
+
+		void GetData(string name, bool active)
+		{
+			name = tbxName.Text;
+			if(cbxActive.Checked)
+			{
+				active = true;
+			}
+			else
+			{
+				active = false;
+			}
+		}
     }
 }

@@ -17,9 +17,20 @@ namespace FinalThiago.Forms
 			InitializeComponent();
 		}
 
-        private void pbxBack_Click(object sender, EventArgs e)
+		#region PbxClick
+
+		private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-    }
+
+		private void pbxClear_Click(object sender, EventArgs e)
+		{
+			tbxSearch.Text = "";
+		}
+
+		#endregion
+
+
+	}
 }
