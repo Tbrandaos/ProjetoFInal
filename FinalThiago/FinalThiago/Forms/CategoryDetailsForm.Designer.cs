@@ -32,10 +32,10 @@
             this.tbxName = new System.Windows.Forms.TextBox();
             this.lblActive = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.PbxSave = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbxBack = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +45,7 @@
             this.cbxActive.AutoSize = true;
             this.cbxActive.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxActive.Location = new System.Drawing.Point(236, 157);
-            this.cbxActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxActive.Margin = new System.Windows.Forms.Padding(2);
             this.cbxActive.Name = "cbxActive";
             this.cbxActive.Size = new System.Drawing.Size(15, 14);
             this.cbxActive.TabIndex = 2;
@@ -54,7 +54,7 @@
             // tbxName
             // 
             this.tbxName.Location = new System.Drawing.Point(236, 107);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(76, 20);
             this.tbxName.TabIndex = 1;
@@ -83,18 +83,19 @@
             this.lblName.TabIndex = 30;
             this.lblName.Text = "Nome:";
             // 
-            // pictureBox3
+            // PbxSave
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::FinalThiago.Properties.Resources.SaveIcon;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Location = new System.Drawing.Point(472, 321);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 35);
-            this.pictureBox3.TabIndex = 36;
-            this.pictureBox3.TabStop = false;
+            this.PbxSave.BackColor = System.Drawing.Color.Transparent;
+            this.PbxSave.BackgroundImage = global::FinalThiago.Properties.Resources.SaveIcon;
+            this.PbxSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PbxSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbxSave.Location = new System.Drawing.Point(472, 321);
+            this.PbxSave.Margin = new System.Windows.Forms.Padding(2);
+            this.PbxSave.Name = "PbxSave";
+            this.PbxSave.Size = new System.Drawing.Size(57, 35);
+            this.PbxSave.TabIndex = 36;
+            this.PbxSave.TabStop = false;
+            this.PbxSave.Click += new System.EventHandler(this.PbxSave_Click);
             // 
             // pictureBox2
             // 
@@ -103,7 +104,7 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Location = new System.Drawing.Point(534, 321);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(57, 35);
             this.pictureBox2.TabIndex = 35;
@@ -116,7 +117,7 @@
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxBack.Location = new System.Drawing.Point(9, 321);
-            this.pbxBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxBack.Margin = new System.Windows.Forms.Padding(2);
             this.pbxBack.Name = "pbxBack";
             this.pbxBack.Size = new System.Drawing.Size(57, 35);
             this.pbxBack.TabIndex = 34;
@@ -131,15 +132,15 @@
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.cbxActive);
             this.Controls.Add(this.tbxName);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.PbxSave);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pbxBack);
             this.Controls.Add(this.lblActive);
             this.Controls.Add(this.lblName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CategoryDetailsForm";
             this.Text = "Categoria";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();
             this.ResumeLayout(false);
@@ -151,7 +152,7 @@
 
 		private System.Windows.Forms.CheckBox cbxActive;
 		private System.Windows.Forms.TextBox tbxName;
-		private System.Windows.Forms.PictureBox pictureBox3;
+		private System.Windows.Forms.PictureBox PbxSave;
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.PictureBox pbxBack;
 		private System.Windows.Forms.Label lblActive;

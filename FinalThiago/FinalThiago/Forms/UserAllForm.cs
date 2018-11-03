@@ -45,7 +45,7 @@ namespace FinalThiago.Forms
 
 		#endregion
 
-		void GetData(string user)
+		void GetData()
 		{
 			user = tbxSearch.Text;
 		}

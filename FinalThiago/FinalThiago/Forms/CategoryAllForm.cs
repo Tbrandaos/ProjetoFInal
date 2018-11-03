@@ -45,7 +45,7 @@ namespace FinalThiago.Forms
 
 		#endregion
 
-		void GetData(string categoria)
+		void GetData()
 		{
 			categoria = tbxSearch.Text;
 		}

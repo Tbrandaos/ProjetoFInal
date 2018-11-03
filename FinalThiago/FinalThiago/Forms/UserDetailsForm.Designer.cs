@@ -40,11 +40,11 @@
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.cmbProfile = new System.Windows.Forms.ComboBox();
             this.cbxActive = new System.Windows.Forms.CheckBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbxSave = new System.Windows.Forms.PictureBox();
+            this.pbxDelete = new System.Windows.Forms.PictureBox();
             this.pbxBack = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,7 +123,7 @@
             // tbxName
             // 
             this.tbxName.Location = new System.Drawing.Point(260, 31);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(2);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(76, 20);
             this.tbxName.TabIndex = 1;
@@ -131,7 +131,7 @@
             // tbxConfirmPassword
             // 
             this.tbxConfirmPassword.Location = new System.Drawing.Point(260, 146);
-            this.tbxConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbxConfirmPassword.Name = "tbxConfirmPassword";
             this.tbxConfirmPassword.Size = new System.Drawing.Size(76, 20);
             this.tbxConfirmPassword.TabIndex = 4;
@@ -139,7 +139,7 @@
             // tbxPassword
             // 
             this.tbxPassword.Location = new System.Drawing.Point(260, 107);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(76, 20);
             this.tbxPassword.TabIndex = 3;
@@ -147,7 +147,7 @@
             // tbxEmail
             // 
             this.tbxEmail.Location = new System.Drawing.Point(260, 69);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(76, 20);
             this.tbxEmail.TabIndex = 2;
@@ -156,7 +156,7 @@
             // 
             this.cmbProfile.FormattingEnabled = true;
             this.cmbProfile.Location = new System.Drawing.Point(260, 186);
-            this.cmbProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbProfile.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProfile.Name = "cmbProfile";
             this.cmbProfile.Size = new System.Drawing.Size(92, 21);
             this.cmbProfile.TabIndex = 5;
@@ -166,37 +166,38 @@
             this.cbxActive.AutoSize = true;
             this.cbxActive.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbxActive.Location = new System.Drawing.Point(260, 232);
-            this.cbxActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxActive.Margin = new System.Windows.Forms.Padding(2);
             this.cbxActive.Name = "cbxActive";
             this.cbxActive.Size = new System.Drawing.Size(15, 14);
             this.cbxActive.TabIndex = 6;
             this.cbxActive.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // pbxSave
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::FinalThiago.Properties.Resources.SaveIcon;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Location = new System.Drawing.Point(466, 321);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 35);
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
+            this.pbxSave.BackColor = System.Drawing.Color.Transparent;
+            this.pbxSave.BackgroundImage = global::FinalThiago.Properties.Resources.SaveIcon;
+            this.pbxSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbxSave.Location = new System.Drawing.Point(466, 321);
+            this.pbxSave.Margin = new System.Windows.Forms.Padding(2);
+            this.pbxSave.Name = "pbxSave";
+            this.pbxSave.Size = new System.Drawing.Size(57, 35);
+            this.pbxSave.TabIndex = 8;
+            this.pbxSave.TabStop = false;
+            this.pbxSave.Click += new System.EventHandler(this.pbxSave_Click);
             // 
-            // pictureBox2
+            // pbxDelete
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::FinalThiago.Properties.Resources.DeleteIcon;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Location = new System.Drawing.Point(534, 321);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 35);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.pbxDelete.BackColor = System.Drawing.Color.Transparent;
+            this.pbxDelete.BackgroundImage = global::FinalThiago.Properties.Resources.DeleteIcon;
+            this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbxDelete.Location = new System.Drawing.Point(534, 321);
+            this.pbxDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.pbxDelete.Name = "pbxDelete";
+            this.pbxDelete.Size = new System.Drawing.Size(57, 35);
+            this.pbxDelete.TabIndex = 7;
+            this.pbxDelete.TabStop = false;
             // 
             // pbxBack
             // 
@@ -205,7 +206,7 @@
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxBack.Location = new System.Drawing.Point(9, 315);
-            this.pbxBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxBack.Margin = new System.Windows.Forms.Padding(2);
             this.pbxBack.Name = "pbxBack";
             this.pbxBack.Size = new System.Drawing.Size(57, 35);
             this.pbxBack.TabIndex = 6;
@@ -224,8 +225,8 @@
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxConfirmPassword);
             this.Controls.Add(this.tbxName);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbxSave);
+            this.Controls.Add(this.pbxDelete);
             this.Controls.Add(this.pbxBack);
             this.Controls.Add(this.lblActive);
             this.Controls.Add(this.lblProfile);
@@ -233,11 +234,11 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblName);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserDetailsForm";
             this.Text = "Usuário";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,8 +253,8 @@
 		private System.Windows.Forms.Label lblProfile;
 		private System.Windows.Forms.Label lblActive;
 		private System.Windows.Forms.PictureBox pbxBack;
-		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.PictureBox pictureBox3;
+		private System.Windows.Forms.PictureBox pbxDelete;
+		private System.Windows.Forms.PictureBox pbxSave;
 		private System.Windows.Forms.TextBox tbxName;
 		private System.Windows.Forms.TextBox tbxConfirmPassword;
 		private System.Windows.Forms.TextBox tbxPassword;

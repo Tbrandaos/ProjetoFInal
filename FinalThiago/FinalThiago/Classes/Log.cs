@@ -76,5 +76,13 @@ namespace FinalThiago.Classes
             this.Date = date;
             this.Type = type;
         }
+
+        public Log(int id, string description, DateTime date, string type)
+        {
+            this.Id = id;
+            this.Description = description;
+            this.Date = date;
+            this.Type = type;
+        }
     }
 }

@@ -91,5 +91,14 @@ namespace FinalThiago.Classes
             this.Category = category;
             this.Active = active;
         }
+
+        public Product(int id, string name, float price, Category category, bool active)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Price = price;
+            this.Category = category;
+            this.Active = active;
+        }
     }
 }

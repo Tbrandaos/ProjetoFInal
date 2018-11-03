@@ -1,7 +1,9 @@
-﻿using System;
+﻿using FinalThiago.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,18 +20,23 @@ namespace FinalThiago.Forms
 		string confirmPassword = "";
 		string profile = "";
 		bool active = false;
+        List<UserProfile> profiles = new List<UserProfile>();
 
-		public UserDetailsForm()
+        string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
+
+        public UserDetailsForm()
 		{
 			InitializeComponent();
-		}
+            cmbProfile.DisplayMember = "NAME";
+            LoadComboBox();
+        }
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-		void GetData(string name, string email, string password, string confirmPassword, string profile, bool active)
+		void GetData()
 		{
 			name = tbxName.Text;
 			email = tbxEmail.Text;
@@ -45,5 +52,82 @@ namespace FinalThiago.Forms
 				active = false;
 			}
 		}
+
+        void CleanData()
+        {
+            tbxName.Text = "";
+            tbxEmail.Text = "";
+            tbxPassword.Text = "";
+            tbxConfirmPassword.Text = "";
+            cmbProfile.SelectedIndex = 0;
+            cbxActive.Checked = false;
+        }
+
+        void LoadComboBox()
+        {
+            SqlConnection cn = new SqlConnection(connectionString);
+
+            try
+            {
+                cn.Open();
+                SqlCommand sqlCommand = new SqlCommand("SELECT * FROM USER_PROFILE", cn);
+
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    UserProfile up = new UserProfile(Int32.Parse(reader["ID"].ToString()), reader["NAME"].ToString(), bool.Parse(reader["ACTIVE"].ToString()));
+                    profiles.Add(up);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            foreach (UserProfile up in profiles)
+            {
+                cmbProfile.Items.Add(up);
+            }
+        }
+
+        private void pbxSave_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+            try
+            {
+                GetData();
+                UserProfile userprofile = (UserProfile)cmbProfile.SelectedItem;
+                User user = new User(name, password, email, userprofile, active);
+
+                sqlConnect.Open();
+                string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, ACTIVE, FK_USERPROFILE) VALUES (@name, @email, @password, @active)";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@name", user.Name));
+                cmd.Parameters.Add(new SqlParameter("@email", user.Email));
+                cmd.Parameters.Add(new SqlParameter("@password", user.Password));
+                cmd.Parameters.Add(new SqlParameter("@active", user.Active));
+                cmd.Parameters.Add(new SqlParameter("@userprofile", user.UserProfile.Id));
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Adicionado com sucesso!");
+                CleanData();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao adicionar usuário!" + ex.Message);
+                CleanData();
+            }
+            finally
+            {
+                sqlConnect.Close();
+
+            }
+        }
     }
 }
