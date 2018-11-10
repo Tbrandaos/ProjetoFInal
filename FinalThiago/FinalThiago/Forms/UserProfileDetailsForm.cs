@@ -58,7 +58,7 @@ namespace FinalThiago.Forms
                 UserProfile userprofile = new UserProfile(name, active);
 
                 sqlConnect.Open();
-                string sql = "INSERT INTO CATEGORY(NAME, ACTIVE) VALUES (@name, @active)";
+                string sql = "INSERT INTO USER_PROFILE(NAME, ACTIVE) VALUES (@name, @active)";
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 

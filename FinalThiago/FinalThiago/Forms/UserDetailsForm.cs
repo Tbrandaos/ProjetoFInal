@@ -103,7 +103,7 @@ namespace FinalThiago.Forms
                 User user = new User(name, password, email, userprofile, active);
 
                 sqlConnect.Open();
-                string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, ACTIVE, FK_USERPROFILE) VALUES (@name, @email, @password, @active)";
+                string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, ACTIVE, FK_USERPROFILE) VALUES (@name, @email, @password, @active,@fk_profile)";
 
                 SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
@@ -111,7 +111,7 @@ namespace FinalThiago.Forms
                 cmd.Parameters.Add(new SqlParameter("@email", user.Email));
                 cmd.Parameters.Add(new SqlParameter("@password", user.Password));
                 cmd.Parameters.Add(new SqlParameter("@active", user.Active));
-                cmd.Parameters.Add(new SqlParameter("@userprofile", user.UserProfile.Id));
+                cmd.Parameters.Add(new SqlParameter("@fk_profile", user.UserProfile.Id));
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Adicionado com sucesso!");

@@ -133,6 +133,7 @@
             this.tbxConfirmPassword.Location = new System.Drawing.Point(260, 146);
             this.tbxConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbxConfirmPassword.Name = "tbxConfirmPassword";
+            this.tbxConfirmPassword.PasswordChar = '*';
             this.tbxConfirmPassword.Size = new System.Drawing.Size(76, 20);
             this.tbxConfirmPassword.TabIndex = 4;
             // 
@@ -141,6 +142,7 @@
             this.tbxPassword.Location = new System.Drawing.Point(260, 107);
             this.tbxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.PasswordChar = '*';
             this.tbxPassword.Size = new System.Drawing.Size(76, 20);
             this.tbxPassword.TabIndex = 3;
             // 
@@ -149,7 +151,7 @@
             this.tbxEmail.Location = new System.Drawing.Point(260, 69);
             this.tbxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(76, 20);
+            this.tbxEmail.Size = new System.Drawing.Size(127, 20);
             this.tbxEmail.TabIndex = 2;
             // 
             // cmbProfile

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,15 @@ namespace FinalThiago.Forms
 {
 	public partial class UserProfileAllForm : Form
 	{
-		public UserProfileAllForm()
+        string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
+
+        public UserProfileAllForm()
 		{
 			InitializeComponent();
-		}
+
+            ShowData();
+            ResizeDataGridView();
+        }
 
 		#region PbxClick
 
@@ -39,8 +45,65 @@ namespace FinalThiago.Forms
 		private void pbxClear_Click(object sender, EventArgs e)
 		{
 			tbxSearch.Text = "";
-		}
+            ShowData();
+        }
 
-		#endregion
-	}
+        private void pbxSearch_Click(object sender, EventArgs e)
+        {
+            string optionForm = "UserProfileForm";
+            string optionString = "name";
+
+            Search search = new Search();
+            dgvUserProfile.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
+
+            tbxSearch.Text = "";
+        }
+
+        #endregion
+
+        private void ShowData()
+        {
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                sqlConnect.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM USER_PROFILE", sqlConnect);
+                // SqlDataReader reader = cmd.ExecuteReader();
+
+                cmd.ExecuteNonQuery();
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter sqlDtAdapter = new SqlDataAdapter(cmd);
+                sqlDtAdapter.Fill(dt);
+
+                dgvUserProfile.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao conectar. " + ex.Message);
+            }
+            finally
+            {
+                sqlConnect.Close();
+            }
+        }
+
+        private void ResizeDataGridView()
+        {
+            dgvUserProfile.Columns["ID"].Visible = false;
+            dgvUserProfile.Columns["NAME"].HeaderText = "Nome";
+            dgvUserProfile.Columns["ACTIVE"].HeaderText = "Ativo";
+
+
+            foreach (DataGridViewColumn col in dgvUserProfile.Columns)
+            {
+                col.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
+            }
+        }
+
+    }
 }
