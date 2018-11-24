@@ -38,8 +38,12 @@ namespace FinalThiago.Forms
 
         private void pbxEdit_Click(object sender, EventArgs e)
         {
-            UserDetailsForm udf = new UserDetailsForm();
-            udf.Show();
+            int idUser = Int32.Parse(dgvUser.SelectedRows[0].Cells[0].Value.ToString());
+
+            UserDetailsForm userDetailsForm = new UserDetailsForm(idUser);
+            userDetailsForm.Show();
+
+            this.Close();
         }
 
 		private void pbxClear_Click(object sender, EventArgs e)
@@ -57,6 +61,40 @@ namespace FinalThiago.Forms
             dgvUser.DataSource = search.SearchFilter(connectionString, tbxSearch.Text, optionString, optionForm);
 
             tbxSearch.Text = "";
+        }
+
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+            int idUser = Int32.Parse(dgvUser.SelectedRows[0].Cells[0].Value.ToString());
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                sqlConnect.Open();
+                string sql = "UPDATE [USER] SET ACTIVE = @active WHERE ID = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@id", idUser));
+                cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                cmd.ExecuteNonQuery();
+
+                ShowData();
+
+                MessageBox.Show("Usuário inativo!");
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Erro ao editar este usuário!" + "\n\n" + Ex.Message);
+                throw;
+            }
+            finally
+            {
+                sqlConnect.Close();
+            }
         }
 
         #endregion
@@ -112,5 +150,6 @@ namespace FinalThiago.Forms
                 col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             }
         }
+
     }
 }

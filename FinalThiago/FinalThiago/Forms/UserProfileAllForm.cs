@@ -11,40 +11,44 @@ using System.Windows.Forms;
 
 namespace FinalThiago.Forms
 {
-	public partial class UserProfileAllForm : Form
-	{
+    public partial class UserProfileAllForm : Form
+    {
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
         public UserProfileAllForm()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
 
             ShowData();
             ResizeDataGridView();
         }
 
-		#region PbxClick
+        #region PbxClick
 
-		private void pbxAdd_Click(object sender, EventArgs e)
-		{
-			UserProfileDetailsForm updf = new UserProfileDetailsForm();
-			updf.Show();
-		}
+        private void pbxAdd_Click(object sender, EventArgs e)
+        {
+            UserProfileDetailsForm updf = new UserProfileDetailsForm();
+            updf.Show();
+        }
 
-		private void pbxEdit_Click(object sender, EventArgs e)
-		{
-			UserProfileDetailsForm updf = new UserProfileDetailsForm();
-			updf.Show();
-		}
+        private void pbxEdit_Click(object sender, EventArgs e)
+        {
+            int idUserProfile = Int32.Parse(dgvUserProfile.SelectedRows[0].Cells[0].Value.ToString());
 
-		private void pbxBack_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+            UserProfileDetailsForm userProfileDetails = new UserProfileDetailsForm(idUserProfile);
+            userProfileDetails.Show();
 
-		private void pbxClear_Click(object sender, EventArgs e)
-		{
-			tbxSearch.Text = "";
+            this.Close();
+        }
+
+        private void pbxBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pbxClear_Click(object sender, EventArgs e)
+        {
+            tbxSearch.Text = "";
             ShowData();
         }
 
@@ -58,6 +62,40 @@ namespace FinalThiago.Forms
 
             tbxSearch.Text = "";
         }
+
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+            int idUserProfile = Int32.Parse(dgvUserProfile.SelectedRows[0].Cells[0].Value.ToString());
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                sqlConnect.Open();
+                string sql = "UPDATE USER_PROFILE SET ACTIVE = @active WHERE ID = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@id", idUserProfile));
+                cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                cmd.ExecuteNonQuery();
+
+                ShowData();
+
+                MessageBox.Show("Perfil inativo!");
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Erro ao editar este perfil!" + "\n\n" + Ex.Message);
+                throw;
+            }
+            finally
+            {
+                sqlConnect.Close();
+            }
+        }
+
 
         #endregion
 
@@ -107,3 +145,4 @@ namespace FinalThiago.Forms
 
     }
 }
+

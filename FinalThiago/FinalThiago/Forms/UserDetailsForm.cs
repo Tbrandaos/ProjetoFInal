@@ -12,46 +12,100 @@ using System.Windows.Forms;
 
 namespace FinalThiago.Forms
 {
-	public partial class UserDetailsForm : Form
-	{
-		string name = "";
-		string email = "";
-		string password = "";
-		string confirmPassword = "";
-		string profile = "";
-		bool active = false;
+    public partial class UserDetailsForm : Form
+    {
+        string name = "";
+        string email = "";
+        string password = "";
+        string confirmPassword = "";
+        string profile = "";
+        bool active = false;
         List<UserProfile> profiles = new List<UserProfile>();
 
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
         public UserDetailsForm()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             cmbProfile.DisplayMember = "NAME";
             LoadComboBox();
         }
+
+        public UserDetailsForm(int idUser)
+        {
+
+            InitializeComponent();
+            cmbProfile.DisplayMember = "NAME";
+            LoadComboBox();
+
+            lblId.Text = idUser.ToString();
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                try
+                {
+
+                    sqlConnect.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM [USER] WHERE ID = @id", sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", idUser));
+
+                    User user = new User();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            user.Id = Int32.Parse(reader["ID"].ToString());
+                            user.Name = reader["NAME"].ToString();
+                            user.Active = bool.Parse(reader["ACTIVE"].ToString());
+                            user.Email = reader["EMAIL"].ToString();
+                            user.Password = reader["PASSWORD"].ToString();
+                        }
+                    }
+                    tbxName.Text = user.Name;
+                    cbxActive.Checked = user.Active;
+                    tbxEmail.Text = user.Email;
+                    tbxPassword.Text = user.Password;
+                }
+                catch (Exception EX)
+                {
+                    MessageBox.Show("Erro ao carregar produto");
+                    throw;
+                }
+                finally
+                {
+                    //Fechar
+                    sqlConnect.Close();
+                }
+            }
+        }
+
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-		void GetData()
-		{
-			name = tbxName.Text;
-			email = tbxEmail.Text;
-			password = tbxPassword.Text;
-			confirmPassword = tbxConfirmPassword.Text;
-			profile = cmbProfile.Text;
-			if (cbxActive.Checked)
-			{
-				active = true;
-			}
-			else
-			{
-				active = false;
-			}
-		}
+        void GetData()
+        {
+            name = tbxName.Text;
+            email = tbxEmail.Text;
+            password = tbxPassword.Text;
+            confirmPassword = tbxConfirmPassword.Text;
+            profile = cmbProfile.Text;
+            if (cbxActive.Checked)
+            {
+                active = true;
+            }
+            else
+            {
+                active = false;
+            }
+        }
 
         void CleanData()
         {
@@ -127,6 +181,38 @@ namespace FinalThiago.Forms
             {
                 sqlConnect.Close();
 
+            }
+        }
+
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE [USER] SET ACTIVE = @active WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
+                    cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Usuário inativo!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao desativar este perfil!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                }
             }
         }
     }

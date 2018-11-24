@@ -48,11 +48,18 @@
             // 
             // dgvCategory
             // 
+            this.dgvCategory.AllowUserToAddRows = false;
+            this.dgvCategory.AllowUserToDeleteRows = false;
+            this.dgvCategory.AllowUserToResizeColumns = false;
+            this.dgvCategory.AllowUserToResizeRows = false;
             this.dgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCategory.Location = new System.Drawing.Point(9, 52);
-            this.dgvCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvCategory.MultiSelect = false;
             this.dgvCategory.Name = "dgvCategory";
             this.dgvCategory.RowTemplate.Height = 24;
+            this.dgvCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategory.Size = new System.Drawing.Size(582, 267);
             this.dgvCategory.TabIndex = 17;
             // 
@@ -60,7 +67,7 @@
             // 
             this.tbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSearch.Location = new System.Drawing.Point(83, 7);
-            this.tbxSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbxSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(128, 24);
             this.tbxSearch.TabIndex = 10;
@@ -82,7 +89,7 @@
             this.pbxBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxBack.Location = new System.Drawing.Point(9, 324);
-            this.pbxBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxBack.Margin = new System.Windows.Forms.Padding(2);
             this.pbxBack.Name = "pbxBack";
             this.pbxBack.Size = new System.Drawing.Size(57, 35);
             this.pbxBack.TabIndex = 16;
@@ -95,7 +102,7 @@
             this.pbxClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxClear.Location = new System.Drawing.Point(280, 7);
-            this.pbxClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxClear.Margin = new System.Windows.Forms.Padding(2);
             this.pbxClear.Name = "pbxClear";
             this.pbxClear.Size = new System.Drawing.Size(43, 23);
             this.pbxClear.TabIndex = 15;
@@ -108,11 +115,12 @@
             this.pbxDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxDelete.Location = new System.Drawing.Point(434, 324);
-            this.pbxDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxDelete.Margin = new System.Windows.Forms.Padding(2);
             this.pbxDelete.Name = "pbxDelete";
             this.pbxDelete.Size = new System.Drawing.Size(57, 35);
             this.pbxDelete.TabIndex = 14;
             this.pbxDelete.TabStop = false;
+            this.pbxDelete.Click += new System.EventHandler(this.pbxDelete_Click);
             // 
             // pbxEdit
             // 
@@ -120,7 +128,7 @@
             this.pbxEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxEdit.Location = new System.Drawing.Point(514, 324);
-            this.pbxEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxEdit.Margin = new System.Windows.Forms.Padding(2);
             this.pbxEdit.Name = "pbxEdit";
             this.pbxEdit.Size = new System.Drawing.Size(57, 35);
             this.pbxEdit.TabIndex = 13;
@@ -133,7 +141,7 @@
             this.pbxAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxAdd.Location = new System.Drawing.Point(362, 324);
-            this.pbxAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxAdd.Margin = new System.Windows.Forms.Padding(2);
             this.pbxAdd.Name = "pbxAdd";
             this.pbxAdd.Size = new System.Drawing.Size(57, 35);
             this.pbxAdd.TabIndex = 12;
@@ -146,7 +154,7 @@
             this.pbxSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbxSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbxSearch.Location = new System.Drawing.Point(223, 7);
-            this.pbxSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxSearch.Margin = new System.Windows.Forms.Padding(2);
             this.pbxSearch.Name = "pbxSearch";
             this.pbxSearch.Size = new System.Drawing.Size(43, 23);
             this.pbxSearch.TabIndex = 11;
@@ -168,7 +176,7 @@
             this.Controls.Add(this.pbxSearch);
             this.Controls.Add(this.tbxSearch);
             this.Controls.Add(this.lblSearch);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CategoryAllForm";
             this.Text = "Categoria";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategory)).EndInit();

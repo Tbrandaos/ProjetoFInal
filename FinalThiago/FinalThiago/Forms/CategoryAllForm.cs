@@ -31,9 +31,13 @@ namespace FinalThiago.Forms
 
 		private void pbxEdit_Click(object sender, EventArgs e)
 		{
-			CategoryDetailsForm cdf = new CategoryDetailsForm();
-			cdf.Show();
-		}
+            int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
+
+            CategoryDetailsForm categoryDetails = new CategoryDetailsForm(idCategory);
+            categoryDetails.Show();
+
+            this.Close();
+        }
 
 		private void pbxClear_Click(object sender, EventArgs e)
 		{
@@ -58,9 +62,43 @@ namespace FinalThiago.Forms
             tbxSearch.Text = "";
         }
 
-		#endregion
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+            int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
 
-		void GetData()
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                sqlConnect.Open();
+                string sql = "UPDATE CATEGORY SET ACTIVE = @active WHERE ID = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@id", idCategory));
+                cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                cmd.ExecuteNonQuery();
+
+                ShowData();
+
+                MessageBox.Show("Categoria inativo!");
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Erro ao editar esta categoria!" + "\n\n" + Ex.Message);
+                throw;
+            }
+            finally
+            {
+                sqlConnect.Close();
+            }
+        }
+
+
+        #endregion
+
+        void GetData()
 		{
 			categoria = tbxSearch.Text;
 		}
@@ -107,5 +145,6 @@ namespace FinalThiago.Forms
                 col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             }
         }
+
     }
 }

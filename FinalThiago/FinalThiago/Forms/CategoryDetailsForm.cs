@@ -12,35 +12,84 @@ using System.Windows.Forms;
 
 namespace FinalThiago.Forms
 {
-	public partial class CategoryDetailsForm : Form
-	{
-		string name = "";
-		bool active = false;
+    public partial class CategoryDetailsForm : Form
+    {
+        string name = "";
+        bool active = false;
 
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
         public CategoryDetailsForm()
-		{
-			InitializeComponent();
-		}
+        {
+            InitializeComponent();
+        }
+
+        public CategoryDetailsForm(int idCategory)
+        {
+
+            InitializeComponent();
+
+            lblId.Text = idCategory.ToString();
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                try
+                {
+
+                    sqlConnect.Open();
+
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ID = @id", sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", idCategory));
+
+                    Category category = new Category();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            category.Id = Int32.Parse(reader["ID"].ToString());
+                            category.Name = reader["NAME"].ToString();
+                            category.Active = bool.Parse(reader["ACTIVE"].ToString());
+                        }
+                    }
+
+                    tbxName.Text = category.Name;
+                    cbxActive.Checked = category.Active;
+
+                }
+                catch (Exception EX)
+                {
+                    MessageBox.Show("Erro ao carregar categoria");
+                    throw;
+                }
+                finally
+                {
+
+                    sqlConnect.Close();
+                }
+            }
+        }
 
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-		 void GetData()
-		{
-			name = tbxName.Text;
-			if(cbxActive.Checked)
-			{
-				active = true;
-			}
-			else
-			{
-				active = false;
-			}
-		}
+        void GetData()
+        {
+            name = tbxName.Text;
+            if (cbxActive.Checked)
+            {
+                active = true;
+            }
+            else
+            {
+                active = false;
+            }
+        }
 
         void CleanData()
         {
@@ -81,6 +130,38 @@ namespace FinalThiago.Forms
             finally
             {
                 sqlConnect.Close();
+            }
+        }
+
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE CATEGORY SET ACTIVE = @active WHERE ID = @id";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
+                    cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("categoria inativa!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao desativar esta categoria!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                }
             }
         }
     }

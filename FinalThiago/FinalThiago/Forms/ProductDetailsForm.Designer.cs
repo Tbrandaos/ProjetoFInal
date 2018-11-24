@@ -39,6 +39,7 @@
             this.pbxSave = new System.Windows.Forms.PictureBox();
             this.pbxDelete = new System.Windows.Forms.PictureBox();
             this.pbxBack = new System.Windows.Forms.PictureBox();
+            this.lblId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBack)).BeginInit();
@@ -154,6 +155,7 @@
             this.pbxDelete.Size = new System.Drawing.Size(57, 35);
             this.pbxDelete.TabIndex = 22;
             this.pbxDelete.TabStop = false;
+            this.pbxDelete.Click += new System.EventHandler(this.pbxDelete_Click);
             // 
             // pbxBack
             // 
@@ -169,12 +171,25 @@
             this.pbxBack.TabStop = false;
             this.pbxBack.Click += new System.EventHandler(this.pbxBack_Click);
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.BackColor = System.Drawing.Color.Transparent;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(172, 29);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 18);
+            this.lblId.TabIndex = 24;
+            this.lblId.Visible = false;
+            // 
             // ProductDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.cbxActive);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.tbxPrice);
@@ -210,5 +225,6 @@
 		private System.Windows.Forms.Label lblCategory;
 		private System.Windows.Forms.Label lblPrice;
 		private System.Windows.Forms.Label lblName;
-	}
+        private System.Windows.Forms.Label lblId;
+    }
 }

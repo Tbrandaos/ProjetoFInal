@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace FinalThiago.Forms
 {
-	public partial class ProductAllForm : Form
-	{
+    public partial class ProductAllForm : Form
+    {
         string produto;
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
         public ProductAllForm()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             ShowData();
             ResizeDataGridView();
         }
@@ -38,8 +38,12 @@ namespace FinalThiago.Forms
 
         private void pbxEdit_Click(object sender, EventArgs e)
         {
-            ProductDetailsForm pdf = new ProductDetailsForm();
-            pdf.Show();
+            int idProduct = Int32.Parse(dgvProduct.SelectedRows[0].Cells[0].Value.ToString());
+
+            ProductDetailsForm productDetailsForm = new ProductDetailsForm(idProduct);
+            productDetailsForm.Show();
+
+            this.Close();
         }
 
         private void pbxClear_Click(object sender, EventArgs e)
@@ -59,6 +63,39 @@ namespace FinalThiago.Forms
             tbxSearch.Text = "";
         }
 
+        private void pbxDelete_Click(object sender, EventArgs e)
+        {
+            int idProduct = Int32.Parse(dgvProduct.SelectedRows[0].Cells[0].Value.ToString());
+
+            SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+            try
+            {
+                sqlConnect.Open();
+                string sql = "UPDATE PRODUCT SET ACTIVE = @active WHERE ID = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                cmd.Parameters.Add(new SqlParameter("@id", idProduct));
+                cmd.Parameters.Add(new SqlParameter("@active", false));
+
+                cmd.ExecuteNonQuery();
+
+                ShowData();
+
+                MessageBox.Show("Produto inativo!");
+
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show("Erro ao editar este produto!" + "\n\n" + Ex.Message);
+                throw;
+            }
+            finally
+            {
+                sqlConnect.Close();
+            }
+        }
 
         #endregion
 
