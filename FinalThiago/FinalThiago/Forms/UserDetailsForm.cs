@@ -149,38 +149,78 @@ namespace FinalThiago.Forms
 
         private void pbxSave_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnect = new SqlConnection(connectionString);
-            try
+            if (string.IsNullOrEmpty(lblId.Text))
+            {
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
+                try
+                {
+                    GetData();
+                    UserProfile userprofile = (UserProfile)cmbProfile.SelectedItem;
+                    User user = new User(name, password, email, userprofile, active);
+
+                    sqlConnect.Open();
+                    string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, ACTIVE, FK_USERPROFILE) VALUES (@name, @email, @password, @active,@fk_profile)";
+
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+                    cmd.Parameters.Add(new SqlParameter("@name", user.Name));
+                    cmd.Parameters.Add(new SqlParameter("@email", user.Email));
+                    cmd.Parameters.Add(new SqlParameter("@password", user.Password));
+                    cmd.Parameters.Add(new SqlParameter("@active", user.Active));
+                    cmd.Parameters.Add(new SqlParameter("@fk_profile", user.UserProfile.Id));
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Adicionado com sucesso!");
+                    CleanData();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao adicionar usuário!" + ex.Message);
+                    CleanData();
+                }
+                finally
+                {
+                    sqlConnect.Close();
+
+                }
+            }
+            else
             {
                 GetData();
                 UserProfile userprofile = (UserProfile)cmbProfile.SelectedItem;
-                User user = new User(name, password, email, userprofile, active);
+                SqlConnection sqlConnect = new SqlConnection(connectionString);
 
-                sqlConnect.Open();
-                string sql = "INSERT INTO [USER](NAME, EMAIL, PASSWORD, ACTIVE, FK_USERPROFILE) VALUES (@name, @email, @password, @active,@fk_profile)";
+                try
+                {
+                    sqlConnect.Open();
+                    string sql = "UPDATE [USER](NAME, EMAIL, PASSWORD, ACTIVE, FK_USERPROFILE) VALUES (@name, @email, @password, @active, @fk_profile) WHERE ID = @id";
 
-                SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+                    SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
-                cmd.Parameters.Add(new SqlParameter("@name", user.Name));
-                cmd.Parameters.Add(new SqlParameter("@email", user.Email));
-                cmd.Parameters.Add(new SqlParameter("@password", user.Password));
-                cmd.Parameters.Add(new SqlParameter("@active", user.Active));
-                cmd.Parameters.Add(new SqlParameter("@fk_profile", user.UserProfile.Id));
-                cmd.ExecuteNonQuery();
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@email", email));
+                    cmd.Parameters.Add(new SqlParameter("@password", password));
+                    cmd.Parameters.Add(new SqlParameter("@active", active));
+                    cmd.Parameters.Add(new SqlParameter("@fk_profile", userprofile.Id));
+                    cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
 
-                MessageBox.Show("Adicionado com sucesso!");
-                CleanData();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao adicionar usuário!" + ex.Message);
-                CleanData();
-            }
-            finally
-            {
-                sqlConnect.Close();
+                    cmd.ExecuteNonQuery();
 
+                    MessageBox.Show("Altereções salvas com sucesso!");
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("Erro ao editar este usuário!" + "\n\n" + Ex.Message);
+                    throw;
+                }
+                finally
+                {
+                    sqlConnect.Close();
+
+                    this.Close();
+                }
             }
         }
 

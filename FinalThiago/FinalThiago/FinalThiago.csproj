@@ -50,6 +50,7 @@
     <Compile Include="Classes\Log.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\UserHelper.cs" />
     <Compile Include="Classes\UserProfile.cs" />
     <Compile Include="Forms\CategoryAllForm.cs">
       <SubType>Form</SubType>

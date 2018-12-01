@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalThiago.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace FinalThiago.Forms
 {
     public partial class HomeForm : Form
     {
-        public HomeForm()
+        public HomeForm(User user)
         {
             InitializeComponent();
+            if(user.UserProfile.Name != "Gerente")
+            {
+                pbxUser.Enabled = false;
+                pbxUser.Enabled = false;
+                pbxLog.Enabled = false;
+            }
         }
 
 		#region Mouse Enter/Leave

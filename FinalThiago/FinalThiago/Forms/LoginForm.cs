@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalThiago.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,10 @@ namespace FinalThiago.Forms
 {
     public partial class LoginForm : Form
     {
+        string name = "";
+        string password = "";
+        User user;
+
         public LoginForm()
         {
             InitializeComponent();
@@ -63,10 +68,55 @@ namespace FinalThiago.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            HomeForm hf = new HomeForm();
-            hf.Show();
+            try
+            {
+                GetData();
+                if (CheckLogin(password, name))
+                {
+                    HomeForm hf = new HomeForm(user);
+                    hf.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    CleanData();
+                    MessageBox.Show("Usuário ou senha incorretos!");
+                }
+            }
+            catch (Exception ex)
+            {
+                CleanData();
+                MessageBox.Show(ex.Message);
+            }
         }
 
         #endregion
+
+        void GetData()
+        {
+            Name = lblName.Text;
+            password = lblPassword.Text;
+        }
+
+        void CleanData()
+        {
+            lblName.Text = "";
+            lblPassword.Text = "";
+        }
+
+        private bool CheckLogin(string password, string name)
+        {
+            user = UserHelper.SelectByName(name);
+
+            if (user != null)
+            {
+                if (UserHelper.Hash(password) == user.Password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

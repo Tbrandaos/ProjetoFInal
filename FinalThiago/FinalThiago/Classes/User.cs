@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalThiago.Classes
 {
-    class User
+    public class User
     {
         int id;
         string name;
