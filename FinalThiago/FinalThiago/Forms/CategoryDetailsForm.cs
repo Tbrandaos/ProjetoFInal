@@ -119,7 +119,6 @@ namespace FinalThiago.Forms
 
                     MessageBox.Show("Adicionado com sucesso!");
 					Log.SaveLog("Categoria Criada", DateTime.Now, "Criação");
-
 					CleanData();
 
 

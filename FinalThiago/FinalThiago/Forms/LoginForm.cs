@@ -101,20 +101,18 @@ namespace FinalThiago.Forms
             }
         }
 
-
-
         #endregion
 
         void GetData()
         {
-            Name = lblName.Text;
-            password = lblPassword.Text;
+            name = tbxName.Text;
+            password = tbxPassword.Text;
         }
 
         void CleanData()
         {
-            lblName.Text = "";
-            lblPassword.Text = "";
+            tbxName.Text = "";
+            tbxPassword.Text = "";
         }
 
         private bool CheckLogin(string password, string name)

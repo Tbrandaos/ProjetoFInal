@@ -190,18 +190,23 @@
     <Content Include="Icons\SearchIcon.png" />
     <Content Include="Icons\UserIcon.png" />
     <Content Include="Icons\UserProfileIcon.png" />
-    <None Include="Resources\SaveIcon.png" />
+    <None Include="Resources\ColoredLogIcon.png" />
+    <None Include="Resources\LogIcon.png" />
+    <None Include="Resources\ColoredUserProfileIcon.png" />
     <None Include="Resources\UserProfileIcon.png" />
+    <None Include="Resources\ColoredUserIcon.png" />
     <None Include="Resources\UserIcon.png" />
-    <None Include="Resources\SearchIcon.png" />
+    <None Include="Resources\ColoredCategoryIcon.png" />
+    <None Include="Resources\CategoryIcon2.png" />
+    <None Include="Resources\ColoredProductIcon.png" />
     <None Include="Resources\ProductIcon.png" />
+    <None Include="Resources\SaveIcon.png" />
+    <None Include="Resources\SearchIcon.png" />
     <None Include="Resources\EditIcon.png" />
     <None Include="Resources\DeleteIcon.png" />
     <None Include="Resources\BackIcon.png" />
     <None Include="Resources\AddIcon.png" />
     <None Include="Resources\ClearIcon.png" />
-    <None Include="Resources\CategoryIcon2.png" />
-    <None Include="Resources\LogIcon.png" />
     <None Include="Resources\CleanIcon.png" />
     <None Include="Resources\CategpryIcon.jpg" />
   </ItemGroup>

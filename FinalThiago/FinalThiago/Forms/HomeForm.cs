@@ -1,4 +1,5 @@
 ﻿using FinalThiago.Classes;
+using FinalThiago.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,16 @@ namespace FinalThiago.Forms
 {
     public partial class HomeForm : Form
     {
+		bool aux = true;
+
         public HomeForm(User user)
         {
             InitializeComponent();
             if(user.UserProfile.Name != "Gerente")
             {
+				aux = false;
                 pbxUser.Enabled = false;
-                pbxUser.Enabled = false;
+                pbxUserProfile.Enabled = false;
                 pbxLog.Enabled = false;
             }
         }
@@ -28,54 +32,82 @@ namespace FinalThiago.Forms
 
 		private void pbxProduct_MouseEnter(object sender, EventArgs e)
 		{
-			pbxProduct.BackColor = Color.LightBlue;
+			pbxProduct.BackgroundImage = Resources.ColoredProductIcon;
 		}
 
 		private void pbxProduct_MouseLeave(object sender, EventArgs e)
 		{
-			pbxProduct.BackColor = Color.Transparent;
-
+			pbxProduct.BackgroundImage = Resources.ProductIcon;
 		}
 
 		private void pbxCategory_MouseEnter(object sender, EventArgs e)
 		{
-			pbxCategory.BackColor = Color.LightBlue;
+			pbxCategory.BackgroundImage = Resources.ColoredCategoryIcon;
 		}
 
 		private void pbxCategory_MouseLeave(object sender, EventArgs e)
 		{
-			pbxCategory.BackColor = Color.Transparent;
+			pbxCategory.BackgroundImage = Resources.CategoryIcon2;
 		}
 
 		private void pbxLog_MouseEnter(object sender, EventArgs e)
 		{
-			pbxLog.BackColor = Color.LightBlue;
+			if (aux)
+			{
+				pbxLog.BackgroundImage = Resources.ColoredLogIcon;
+			}
+			else
+			{
+				pbxLog.Cursor = Cursors.Arrow;
+			}
 		}
 
 		private void pbxLog_MouseLeave(object sender, EventArgs e)
 		{
-			pbxLog.BackColor = Color.Transparent;
+			if (aux)
+			{
+				pbxLog.BackgroundImage = Resources.LogIcon;
+			}
 		}
 
 		private void pbxUser_MouseEnter(object sender, EventArgs e)
 		{
-			pbxUser.BackColor = Color.LightBlue;
+			if (aux)
+			{
+				pbxUser.BackgroundImage = Resources.ColoredUserIcon;
+			}
+			else
+			{
+				pbxUser.Cursor = Cursors.Arrow;
+			}
 		}
 
 		private void pbxUser_MouseLeave(object sender, EventArgs e)
 		{
-			pbxUser.BackColor = Color.Transparent;
+			if (aux)
+			{
+				pbxUser.BackgroundImage = Resources.UserIcon;
+			}
 		}
 
 		private void pbxUserProfile_MouseEnter(object sender, EventArgs e)
 		{
-			pbxUserProfile.BackColor = Color.LightBlue;
+			if (aux)
+			{
+				pbxUserProfile.BackgroundImage = Resources.ColoredUserProfileIcon;
+			}
+			else
+			{
+				pbxUserProfile.Cursor = Cursors.Arrow;
+			}
 		}
 
 		private void pbxUserProfile_MouseLeave(object sender, EventArgs e)
 		{
-			pbxUserProfile.BackColor = Color.Transparent;
-
+			if (aux)
+			{
+				pbxUserProfile.BackgroundImage = Resources.ColoredUserProfileIcon;
+			}
 		}
 
         #endregion
