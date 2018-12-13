@@ -162,7 +162,8 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-                    CleanData();
+					Log.SaveLog("Produto Criado", DateTime.Now, "Criação");
+					CleanData();
                 }
                 catch (Exception ex)
                 {
@@ -197,7 +198,8 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-                }
+					Log.SaveLog("Produto Editado", DateTime.Now, "Edição");
+				}
                 catch (Exception Ex)
                 {
                     MessageBox.Show("Erro ao editar este produto!" + "\n\n" + Ex.Message);
@@ -231,7 +233,8 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Produto inativo!");
-                }
+					Log.SaveLog("Produto Excluído", DateTime.Now, "Excluir");
+				}
                 catch (Exception Ex)
                 {
                     MessageBox.Show("Erro ao desativar este produto!" + "\n\n" + Ex.Message);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalThiago.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -84,7 +85,8 @@ namespace FinalThiago.Forms
                 ShowData();
 
                 MessageBox.Show("Perfil inativo!");
-            }
+				Log.SaveLog("Perfil Excluído", DateTime.Now, "Excluir");
+			}
             catch (Exception Ex)
             {
                 MessageBox.Show("Erro ao editar este perfil!" + "\n\n" + Ex.Message);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,5 +85,25 @@ namespace FinalThiago.Classes
             this.Date = date;
             this.Type = type;
         }
-    }
+
+		public static void SaveLog(string description, DateTime date, string type)
+		{
+			string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
+
+			SqlConnection sqlConnect = new SqlConnection(connectionString);
+
+			//Conectar
+			sqlConnect.Open();
+			string sql = "INSERT INTO LOG (DESCRIPTION, DATE, TYPE) VALUES (@description, @date, @type)";
+
+			SqlCommand cmd = new SqlCommand(sql, sqlConnect);
+
+			cmd.Parameters.Add(new SqlParameter("@description", description));
+			cmd.Parameters.Add(new SqlParameter("@date", date));
+			cmd.Parameters.Add(new SqlParameter("@type", type));
+
+			cmd.ExecuteNonQuery();
+
+		}
+	}
 }

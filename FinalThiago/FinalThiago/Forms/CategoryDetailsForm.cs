@@ -118,8 +118,9 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
+					Log.SaveLog("Categoria Criada", DateTime.Now, "Criação");
 
-                    CleanData();
+					CleanData();
 
 
                 }
@@ -152,7 +153,8 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-                }
+					Log.SaveLog("Categoria Editada", DateTime.Now, "Edição");
+				}
                 catch (Exception Ex)
                 {
                     MessageBox.Show("Erro ao editar esta categoria!" + "\n\n" + Ex.Message);
@@ -186,7 +188,8 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("categoria inativa!");
-                }
+					Log.SaveLog("Categoria Exluída", DateTime.Now, "Excluir");
+				}
                 catch (Exception Ex)
                 {
                     MessageBox.Show("Erro ao desativar esta categoria!" + "\n\n" + Ex.Message);

@@ -82,8 +82,9 @@ namespace FinalThiago.Forms
 
                 ShowData();
 
-                MessageBox.Show("Categoria inativo!");
-            }
+                MessageBox.Show("Categoria inativa!");
+				Log.SaveLog("Categoria Excluída", DateTime.Now, "Excluir");
+			}
             catch (Exception Ex)
             {
                 MessageBox.Show("Erro ao editar esta categoria!" + "\n\n" + Ex.Message);

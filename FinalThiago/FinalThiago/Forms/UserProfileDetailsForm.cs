@@ -117,8 +117,9 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
+					Log.SaveLog("Perfil Criado", DateTime.Now, "Criação");
 
-                    CleanData();
+					CleanData();
 
 
                 }
@@ -151,7 +152,8 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-                }
+					Log.SaveLog("Perfil Editado", DateTime.Now, "Edição");
+				}
                 catch (Exception Ex)
                 {
                     MessageBox.Show("Erro ao editar este perfil!" + "\n\n" + Ex.Message);
@@ -185,8 +187,9 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Perfil inativo!");
-                }
-                catch (Exception Ex)
+					Log.SaveLog("Perfil Excluído", DateTime.Now, "Excluir");
+				}
+				catch (Exception Ex)
                 {
                     MessageBox.Show("Erro ao desativar este perfil!" + "\n\n" + Ex.Message);
                     throw;

@@ -84,8 +84,9 @@ namespace FinalThiago.Forms
                 ShowData();
 
                 MessageBox.Show("Produto inativo!");
+				Log.SaveLog("Produto Excluído", DateTime.Now, "Excluir");
 
-            }
+			}
             catch (Exception Ex)
             {
                 MessageBox.Show("Erro ao editar este produto!" + "\n\n" + Ex.Message);
