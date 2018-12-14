@@ -81,62 +81,11 @@ namespace FinalThiago.Forms
             }
         }
 
-        private void pbxBack_Click(object sender, EventArgs e)
+		#region PbxClick
+
+		private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        void GetData()
-        {
-            name = tbxName.Text;
-            price = float.Parse(tbxPrice.Text);
-            categoria = cmbCategory.Text;
-            if (cbxActive.Checked)
-            {
-                active = true;
-            }
-            else
-            {
-                active = false;
-            }
-        }
-
-        void CleanData()
-        {
-            tbxName.Text = "";
-            tbxPrice.Text = "";
-            cmbCategory.SelectedIndex = 0;
-            cbxActive.Checked = false;
-        }
-
-        void LoadComboBox()
-        {
-            SqlConnection cn = new SqlConnection(connectionString);
-
-            try
-            {
-                cn.Open();
-                SqlCommand sqlCommand = new SqlCommand("SELECT * FROM CATEGORY", cn);
-
-                SqlDataReader reader = sqlCommand.ExecuteReader();
-                while (reader.Read())
-                {
-                    Category c = new Category(Int32.Parse(reader["ID"].ToString()), reader["NAME"].ToString(), bool.Parse(reader["ACTIVE"].ToString()));
-                    categories.Add(c);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-            }
-            foreach (Category c in categories)
-            {
-                cmbCategory.Items.Add(c);
-            }
         }
 
         private void pbxSave_Click(object sender, EventArgs e)
@@ -246,5 +195,64 @@ namespace FinalThiago.Forms
                 }
             }
         }
-    }
+
+		#endregion
+
+		#region Functions
+
+		void GetData()
+		{
+			name = tbxName.Text;
+			price = float.Parse(tbxPrice.Text);
+			categoria = cmbCategory.Text;
+			if (cbxActive.Checked)
+			{
+				active = true;
+			}
+			else
+			{
+				active = false;
+			}
+		}
+
+		void CleanData()
+		{
+			tbxName.Text = "";
+			tbxPrice.Text = "";
+			cmbCategory.SelectedIndex = 0;
+			cbxActive.Checked = false;
+		}
+
+		void LoadComboBox()
+		{
+			SqlConnection cn = new SqlConnection(connectionString);
+
+			try
+			{
+				cn.Open();
+				SqlCommand sqlCommand = new SqlCommand("SELECT * FROM CATEGORY", cn);
+
+				SqlDataReader reader = sqlCommand.ExecuteReader();
+				while (reader.Read())
+				{
+					Category c = new Category(Int32.Parse(reader["ID"].ToString()), reader["NAME"].ToString(), bool.Parse(reader["ACTIVE"].ToString()));
+					categories.Add(c);
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			finally
+			{
+				cn.Close();
+			}
+			foreach (Category c in categories)
+			{
+				cmbCategory.Items.Add(c);
+			}
+		}
+
+		#endregion
+	}
 }

@@ -16,7 +16,8 @@ namespace FinalThiago.Forms
 	{
 		string categoria = "";
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
-        public CategoryAllForm()
+
+		public CategoryAllForm()
 		{
 			InitializeComponent();
             ShowData();

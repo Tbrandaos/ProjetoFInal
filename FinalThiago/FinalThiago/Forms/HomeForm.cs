@@ -106,7 +106,7 @@ namespace FinalThiago.Forms
 		{
 			if (aux)
 			{
-				pbxUserProfile.BackgroundImage = Resources.ColoredUserProfileIcon;
+				pbxUserProfile.BackgroundImage = Resources.UserProfileIcon;
 			}
 		}
 

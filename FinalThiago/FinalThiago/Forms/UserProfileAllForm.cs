@@ -99,9 +99,11 @@ namespace FinalThiago.Forms
         }
 
 
-        #endregion
+		#endregion
 
-        private void ShowData()
+		#region Functions
+
+		private void ShowData()
         {
             SqlConnection sqlConnect = new SqlConnection(connectionString);
 
@@ -145,6 +147,8 @@ namespace FinalThiago.Forms
             }
         }
 
-    }
+		#endregion
+
+	}
 }
 

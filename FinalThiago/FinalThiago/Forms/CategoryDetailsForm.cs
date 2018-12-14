@@ -73,28 +73,11 @@ namespace FinalThiago.Forms
             }
         }
 
-        private void pbxBack_Click(object sender, EventArgs e)
+		#region PbxClick
+
+		private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        void GetData()
-        {
-            name = tbxName.Text;
-            if (cbxActive.Checked)
-            {
-                active = true;
-            }
-            else
-            {
-                active = false;
-            }
-        }
-
-        void CleanData()
-        {
-            tbxName.Text = "";
-            cbxActive.Checked = false;
         }
 
         private void PbxSave_Click(object sender, EventArgs e)
@@ -200,5 +183,30 @@ namespace FinalThiago.Forms
                 }
             }
         }
-    }
+
+		#endregion
+
+		#region Functions
+
+		void GetData()
+		{
+			name = tbxName.Text;
+			if (cbxActive.Checked)
+			{
+				active = true;
+			}
+			else
+			{
+				active = false;
+			}
+		}
+
+		void CleanData()
+		{
+			tbxName.Text = "";
+			cbxActive.Checked = false;
+		}
+
+		#endregion
+	}
 }

@@ -99,9 +99,11 @@ namespace FinalThiago.Forms
             }
         }
 
-        #endregion
+		#endregion
 
-        void GetData()
+		#region Functions
+
+		void GetData()
 		{
 			user = tbxSearch.Text;
 		}
@@ -153,5 +155,7 @@ namespace FinalThiago.Forms
             }
         }
 
-    }
+		#endregion
+
+	}
 }

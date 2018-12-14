@@ -99,9 +99,11 @@ namespace FinalThiago.Forms
             }
         }
 
-        #endregion
+		#endregion
 
-        void GetData()
+		#region Functions
+
+		void GetData()
         {
             produto = tbxSearch.Text;
         }
@@ -154,5 +156,6 @@ namespace FinalThiago.Forms
             }
         }
 
-    }
+		#endregion
+	}
 }
