@@ -9,7 +9,7 @@ namespace FinalThiago.Classes
 {
 	public static class EmailHelper
 	{
-		public static void SendEmail(string email)
+		public static void SendEmail(string email, int newPassword)
 		{
 			MailMessage mail = new MailMessage();
 			SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
@@ -20,7 +20,7 @@ namespace FinalThiago.Classes
 
 
 			string bodyMail = @"
-                    <p>Sua nova senha é 456. Peça ao seu gerente para atualizá-la ou atualize se você for gerente.</p>";
+                    <p>Sua nova senha é." + newPassword + " Peça ao seu gerente para atualizá-la ou atualize se você for gerente.</p>";
 
 			mail.Body = bodyMail;
 			mail.IsBodyHtml = true;

@@ -86,14 +86,8 @@ namespace FinalThiago.Classes
             this.Type = type;
         }
 
-		public static void SaveLog(string description, DateTime date, string type)
+		public static void SaveLog(SqlConnection sqlConnect,string description, DateTime date, string type)
 		{
-			string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
-
-			SqlConnection sqlConnect = new SqlConnection(connectionString);
-
-			//Conectar
-			sqlConnect.Open();
 			string sql = "INSERT INTO LOG (DESCRIPTION, DATE, TYPE) VALUES (@description, @date, @type)";
 
 			SqlCommand cmd = new SqlCommand(sql, sqlConnect);

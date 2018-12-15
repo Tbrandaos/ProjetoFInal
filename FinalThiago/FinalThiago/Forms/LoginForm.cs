@@ -131,9 +131,11 @@ namespace FinalThiago.Forms
 
 		void UpdatePassword()
 		{
-			User user = UserHelper.SelectByName(tbxName.Text);
+            Random random = new Random();
+            int newPassword = random.Next(0, 1000);
+            User user = UserHelper.SelectByName(tbxName.Text);
 
-			if (user.Name == null)
+            if (user.Name == null)
 			{
 				MessageBox.Show("Usuário não encontrado");
 				updated = false;
@@ -144,20 +146,20 @@ namespace FinalThiago.Forms
 
 				try
 				{
-					EmailHelper.SendEmail(user.Email);
+					EmailHelper.SendEmail(user.Email, newPassword);
 
 					GetData();
 					sqlConnect.Open();
 					string sql = "UPDATE [USER] SET PASSWORD = @password Where ID = @id";
 
 					SqlCommand cmd = new SqlCommand(sql, sqlConnect);
-					cmd.Parameters.Add(new SqlParameter("@password", UserHelper.Hash("456")));
+					cmd.Parameters.Add(new SqlParameter("@password", UserHelper.Hash(newPassword.ToString())));
 
 					cmd.Parameters.Add(new SqlParameter("@id", user.Id));
 					cmd.ExecuteNonQuery();
 
 					MessageBox.Show("Uma nova senha foi enviada para seu e-mail!");
-					Log.SaveLog("Usuário Editado", DateTime.Now, "Edição");
+					Log.SaveLog(sqlConnect,"Usuário Editado", DateTime.Now, "Edição");
 				}
 				catch (Exception Ex)
 				{

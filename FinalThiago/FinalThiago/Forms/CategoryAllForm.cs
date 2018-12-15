@@ -15,11 +15,14 @@ namespace FinalThiago.Forms
 	public partial class CategoryAllForm : Form
 	{
 		string categoria = "";
+        User userAux;
+
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
-		public CategoryAllForm()
+		public CategoryAllForm(User user)
 		{
 			InitializeComponent();
+            userAux = user;
             ShowData();
             ResizeDataGridView();
         }
@@ -35,7 +38,7 @@ namespace FinalThiago.Forms
 		{
             int idCategory = Int32.Parse(dgvCategory.SelectedRows[0].Cells[0].Value.ToString());
 
-            CategoryDetailsForm categoryDetails = new CategoryDetailsForm(idCategory);
+            CategoryDetailsForm categoryDetails = new CategoryDetailsForm(idCategory, userAux);
             categoryDetails.Show();
 
             this.Close();
@@ -49,7 +52,7 @@ namespace FinalThiago.Forms
 
 		private void pbxAdd_Click(object sender, EventArgs e)
 		{
-			CategoryDetailsForm cdf = new CategoryDetailsForm();
+			CategoryDetailsForm cdf = new CategoryDetailsForm(userAux);
 			cdf.Show();
 		}
 
@@ -85,7 +88,7 @@ namespace FinalThiago.Forms
                 ShowData();
 
                 MessageBox.Show("Categoria inativa!");
-				Log.SaveLog("Categoria Excluída", DateTime.Now, "Excluir");
+				Log.SaveLog(sqlConnect,"Categoria Excluída", DateTime.Now, "Excluir");
 			}
             catch (Exception Ex)
             {
@@ -101,6 +104,7 @@ namespace FinalThiago.Forms
 
         #endregion
 
+        #region Functions
 
         void GetData()
 		{
@@ -113,10 +117,18 @@ namespace FinalThiago.Forms
 
             try
             {
+                SqlCommand cmd;
                 sqlConnect.Open();
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORY", sqlConnect);
-                // SqlDataReader reader = cmd.ExecuteReader();
+                if (userAux.UserProfile.Name != "Gerente")
+                {
+                    cmd = new SqlCommand("SELECT * FROM CATEGORY WHERE ACTIVE = @active", sqlConnect);
+                    cmd.Parameters.Add(new SqlParameter("@active",true));
+                }
+                else
+                {
+                    cmd = new SqlCommand("SELECT * FROM CATEGORY", sqlConnect);
+                }
 
                 cmd.ExecuteNonQuery();
 
@@ -149,6 +161,8 @@ namespace FinalThiago.Forms
                 col.HeaderCell.Style.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Pixel);
             }
         }
+
+        #endregion
 
     }
 }

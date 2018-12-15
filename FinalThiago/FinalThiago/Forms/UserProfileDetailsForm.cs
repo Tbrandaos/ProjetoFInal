@@ -100,7 +100,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-					Log.SaveLog("Perfil Criado", DateTime.Now, "Criação");
+					Log.SaveLog(sqlConnect,"Perfil Criado", DateTime.Now, "Criação");
 
 					CleanData();
 
@@ -135,7 +135,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-					Log.SaveLog("Perfil Editado", DateTime.Now, "Edição");
+					Log.SaveLog(sqlConnect,"Perfil Editado", DateTime.Now, "Edição");
 				}
                 catch (Exception Ex)
                 {
@@ -170,7 +170,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Perfil inativo!");
-					Log.SaveLog("Perfil Excluído", DateTime.Now, "Excluir");
+					Log.SaveLog(sqlConnect,"Perfil Excluído", DateTime.Now, "Excluir");
 				}
 				catch (Exception Ex)
                 {

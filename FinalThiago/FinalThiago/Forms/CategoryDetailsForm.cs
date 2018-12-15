@@ -16,18 +16,21 @@ namespace FinalThiago.Forms
     {
         string name = "";
         bool active = false;
+        User userAux;
 
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
-        public CategoryDetailsForm()
+        public CategoryDetailsForm(User user)
         {
             InitializeComponent();
+            userAux = user;
         }
 
-        public CategoryDetailsForm(int idCategory)
+        public CategoryDetailsForm(int idCategory, User user)
         {
 
             InitializeComponent();
+            userAux = user;
 
             lblId.Text = idCategory.ToString();
 
@@ -101,7 +104,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-					Log.SaveLog("Categoria Criada", DateTime.Now, "Criação");
+					Log.SaveLog(sqlConnect,"Categoria Criada", DateTime.Now, "Criação");
 					CleanData();
 
 
@@ -135,7 +138,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-					Log.SaveLog("Categoria Editada", DateTime.Now, "Edição");
+					Log.SaveLog(sqlConnect,"Categoria Editada", DateTime.Now, "Edição");
 				}
                 catch (Exception Ex)
                 {
@@ -170,7 +173,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("categoria inativa!");
-					Log.SaveLog("Categoria Exluída", DateTime.Now, "Excluir");
+					Log.SaveLog(sqlConnect,"Categoria Exluída", DateTime.Now, "Excluir");
 				}
                 catch (Exception Ex)
                 {

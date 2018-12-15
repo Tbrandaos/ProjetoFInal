@@ -15,11 +15,15 @@ namespace FinalThiago.Forms
     public partial class ProductAllForm : Form
     {
         string produto;
+        User userAux;
         string connectionString = "workstation id=StockControl.mssql.somee.com;packet size=4096;user id=levelupacademy_SQLLogin_1;pwd=3wwate8gu1;data source=StockControl.mssql.somee.com;persist security info=False;initial catalog=StockControl";
 
-        public ProductAllForm()
+        public ProductAllForm(User user)
         {
             InitializeComponent();
+
+            userAux = user;
+
             ShowData();
             ResizeDataGridView();
         }
@@ -85,7 +89,7 @@ namespace FinalThiago.Forms
                 ShowData();
 
                 MessageBox.Show("Produto inativo!");
-				Log.SaveLog("Produto Excluído", DateTime.Now, "Excluir");
+				Log.SaveLog(sqlConnect,"Produto Excluído", DateTime.Now, "Excluir");
 
 			}
             catch (Exception Ex)
@@ -114,11 +118,19 @@ namespace FinalThiago.Forms
 
             try
             {
+                SqlCommand cmd;
                 sqlConnect.Open();
 
-                SqlCommand cmd = new SqlCommand("SELECT PRODUCT.ID, PRODUCT.NAME, PRODUCT.ACTIVE, PRODUCT.PRICE, CATEGORY.NAME FROM PRODUCT INNER JOIN CATEGORY ON PRODUCT.FK_PRODUCT = CATEGORY.ID;", sqlConnect);
 
-                // SqlDataReader reader = cmd.ExecuteReader();
+                if (userAux.UserProfile.Name != "Gerente")
+                {
+                    cmd = new SqlCommand("SELECT PRODUCT.ID, PRODUCT.NAME, PRODUCT.ACTIVE, PRODUCT.PRICE, CATEGORY.NAME FROM PRODUCT INNER JOIN CATEGORY ON PRODUCT.FK_PRODUCT = CATEGORY.ID WHERE PRODUCT.ACTIVE = @active;", sqlConnect);
+                    cmd.Parameters.Add(new SqlParameter("@active", true));
+                }
+                else
+                {
+                    cmd = new SqlCommand("SELECT PRODUCT.ID, PRODUCT.NAME, PRODUCT.ACTIVE, PRODUCT.PRICE, CATEGORY.NAME FROM PRODUCT INNER JOIN CATEGORY ON PRODUCT.FK_PRODUCT = CATEGORY.ID;", sqlConnect);
+                }
 
                 cmd.ExecuteNonQuery();
 

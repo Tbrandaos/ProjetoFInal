@@ -85,7 +85,7 @@ namespace FinalThiago.Forms
                 ShowData();
 
                 MessageBox.Show("Usuário inativo!");
-				Log.SaveLog("Usuário Excluído", DateTime.Now, "Excluir");
+				Log.SaveLog(sqlConnect,"Usuário Excluído", DateTime.Now, "Excluir");
 
 			}
             catch (Exception Ex)

@@ -109,13 +109,13 @@ namespace FinalThiago.Forms
 
                     cmd.Parameters.Add(new SqlParameter("@name", user.Name));
                     cmd.Parameters.Add(new SqlParameter("@email", user.Email));
-                    cmd.Parameters.Add(new SqlParameter("@password", user.Password));
+                    cmd.Parameters.Add(new SqlParameter("@password", UserHelper.Hash(user.Password)));
                     cmd.Parameters.Add(new SqlParameter("@active", user.Active));
                     cmd.Parameters.Add(new SqlParameter("@fk_profile", user.UserProfile.Id));
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-					Log.SaveLog("Usuário Criado", DateTime.Now, "Criação");
+					Log.SaveLog(sqlConnect,"Usuário Criado", DateTime.Now, "Criação");
 					CleanData();
 
                 }
@@ -145,7 +145,7 @@ namespace FinalThiago.Forms
 
                     cmd.Parameters.Add(new SqlParameter("@name", name));
                     cmd.Parameters.Add(new SqlParameter("@email", email));
-                    cmd.Parameters.Add(new SqlParameter("@password", password));
+                    cmd.Parameters.Add(new SqlParameter("@password", UserHelper.Hash(password)));
                     cmd.Parameters.Add(new SqlParameter("@active", active));
                     cmd.Parameters.Add(new SqlParameter("@fk_profile", userprofile.Id));
                     cmd.Parameters.Add(new SqlParameter("@id", lblId.Text));
@@ -154,7 +154,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-					Log.SaveLog("Usuário Editado", DateTime.Now, "Edição");
+					Log.SaveLog(sqlConnect,"Usuário Editado", DateTime.Now, "Edição");
 				}
                 catch (Exception Ex)
                 {
@@ -189,7 +189,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Usuário inativo!");
-					Log.SaveLog("Usuário Excluído", DateTime.Now, "Excluir");
+					Log.SaveLog(sqlConnect,"Usuário Excluído", DateTime.Now, "Excluir");
 				}
                 catch (Exception Ex)
                 {

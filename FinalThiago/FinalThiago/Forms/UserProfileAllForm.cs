@@ -85,7 +85,7 @@ namespace FinalThiago.Forms
                 ShowData();
 
                 MessageBox.Show("Perfil inativo!");
-				Log.SaveLog("Perfil Excluído", DateTime.Now, "Excluir");
+				Log.SaveLog(sqlConnect,"Perfil Excluído", DateTime.Now, "Excluir");
 			}
             catch (Exception Ex)
             {

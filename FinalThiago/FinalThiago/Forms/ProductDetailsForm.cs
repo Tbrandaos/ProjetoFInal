@@ -111,7 +111,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Adicionado com sucesso!");
-					Log.SaveLog("Produto Criado", DateTime.Now, "Criação");
+					Log.SaveLog(sqlConnect,"Produto Criado", DateTime.Now, "Criação");
 					CleanData();
                 }
                 catch (Exception ex)
@@ -147,7 +147,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Altereções salvas com sucesso!");
-					Log.SaveLog("Produto Editado", DateTime.Now, "Edição");
+					Log.SaveLog(sqlConnect,"Produto Editado", DateTime.Now, "Edição");
 				}
                 catch (Exception Ex)
                 {
@@ -182,7 +182,7 @@ namespace FinalThiago.Forms
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Produto inativo!");
-					Log.SaveLog("Produto Excluído", DateTime.Now, "Excluir");
+					Log.SaveLog(sqlConnect,"Produto Excluído", DateTime.Now, "Excluir");
 				}
                 catch (Exception Ex)
                 {
