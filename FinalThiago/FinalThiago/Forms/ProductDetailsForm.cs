@@ -133,7 +133,7 @@ namespace FinalThiago.Forms
                     GetData();
                     Category c = (Category)cmbCategory.SelectedItem;
                     sqlConnect.Open();
-                    string sql = "UPDATE PRODUCT(NAME, PRICE,ACTIVE,FK_PRODUCT) VALUES (@name,@price,@active,@category) WHERE ID = @id";
+                    string sql = "UPDATE PRODUCT SET NAME = @name, PRICE = @price, ACTIVE = @active, FK_PRODUCT = @category WHERE ID = @id";
 
                     SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 

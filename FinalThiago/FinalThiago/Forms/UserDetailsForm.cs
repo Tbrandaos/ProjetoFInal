@@ -139,7 +139,7 @@ namespace FinalThiago.Forms
                 try
                 {
                     sqlConnect.Open();
-                    string sql = "UPDATE [USER](NAME, EMAIL, PASSWORD, ACTIVE, FK_USERPROFILE) VALUES (@name, @email, @password, @active, @fk_profile) WHERE ID = @id";
+                    string sql = "UPDATE [USER] SET NAME = @name, EMAIL = @email, PASSWORD = @password, ACTIVE = @active, FK_USERPROFILE = @fk_profile WHERE ID = @id";
 
                     SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 

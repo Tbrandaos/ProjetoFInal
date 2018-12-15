@@ -124,7 +124,7 @@ namespace FinalThiago.Forms
                 {
                     GetData();
                     sqlConnect.Open();
-                    string sql = "UPDATE USER_PROFILE(NAME, ACTIVE) VALUES (@name, @active) WHERE ID = @id";
+                    string sql = "UPDATE USER_PROFILE SET NAME = @name, ACTIVE = @active WHERE ID = @id";
 
                     SqlCommand cmd = new SqlCommand(sql, sqlConnect);
 
